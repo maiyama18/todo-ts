@@ -1,3 +1,4 @@
+import { Reducer } from 'redux';
 import * as uuid from 'uuid/v4';
 import { PayloadedAction } from '../types';
 
@@ -37,7 +38,9 @@ export const changeFilter = (filter: Filter): TodosAction => ({
   payload: { filter },
 });
 
-export const TodosReducer = (state = todosInitialState, action: TodosAction): TodosState => {
+export const TodosReducer: Reducer<TodosState, TodosAction> = (
+  state = todosInitialState, action: TodosAction,
+): TodosState => {
   switch (action.type) {
   case 'ADD_TODO':
     return {

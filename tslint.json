@@ -12,6 +12,7 @@
     "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
     "interface-name": false,
     "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
     "object-literal-sort-keys": false,
     "no-console": false
   }

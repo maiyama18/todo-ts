@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { TodoList } from './TodoList';
 
 export const App = () => (
   <div>
-    Hello
+    <TodoList />
   </div>
 );
