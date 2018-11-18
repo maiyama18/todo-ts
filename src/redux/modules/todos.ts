@@ -8,7 +8,12 @@ export interface Todo {
   completed: boolean;
 }
 
-export type Filter = 'ALL' | 'COMPLETED' | 'UNCOMPLETED';
+// export type Filter = 'ALL' | 'COMPLETED' | 'UNCOMPLETED';
+export enum Filter {
+  ALL = 'ALL',
+  COMPLETED = 'COMPLETED',
+  UNCOMPLETED = 'UNCOMPLETED',
+}
 
 export interface TodosState {
   todos: Todo[];
@@ -17,7 +22,7 @@ export interface TodosState {
 
 export const todosInitialState: TodosState = {
   todos: [],
-  filter: 'ALL',
+  filter: Filter.ALL,
 };
 
 export type TodosAction =

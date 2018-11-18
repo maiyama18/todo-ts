@@ -29,11 +29,11 @@ const TodoListPresentation = (props: StateProps & DispatchProps) => (
 
 const filterTodos = (todos: Todo[], filter: Filter): Todo[] => {
   switch (filter) {
-  case 'ALL':
+  case Filter.ALL:
     return todos;
-  case 'COMPLETED':
+  case Filter.COMPLETED:
     return todos.filter((todo) => todo.completed);
-  case 'UNCOMPLETED':
+  case Filter.UNCOMPLETED:
     return todos.filter((todo) => !todo.completed);
   }
 };
