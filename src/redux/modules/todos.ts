@@ -63,5 +63,7 @@ export const TodosReducer: Reducer<TodosState, TodosAction> = (
       ...state,
       filter: action.payload.filter,
     };
+  default:
+    return state;
   }
 };

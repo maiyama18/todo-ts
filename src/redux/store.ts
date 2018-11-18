@@ -1,7 +1,8 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, Reducer } from 'redux';
 import { TodosReducer } from './modules/todos';
+import { AppState } from './types';
 
-const rootReducer = combineReducers({
+const rootReducer: Reducer<AppState, any> = combineReducers({
   todos: TodosReducer,
 });
 
