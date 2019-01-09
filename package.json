@@ -1,5 +1,6 @@
 {
   "name": "todo-ts",
+  "homepage": "https://muiscript.github.io/todo-ts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
