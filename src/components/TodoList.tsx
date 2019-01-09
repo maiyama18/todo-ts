@@ -7,48 +7,49 @@ import { AppState } from '../redux/types';
 const actions = { toggleTodo };
 
 interface StateProps {
-  visibleTodos: Todo[];
+    visibleTodos: Todo[];
 }
+
 type DispatchProps = typeof actions;
 
 const TodoListPresentation = (props: StateProps & DispatchProps) => (
-  <div>
-    <ul>
-      {props.visibleTodos.map((todo) => (
-        <li
-          key={todo.id}
-          style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
-          onClick={() => props.toggleTodo(todo.id)}
-        >
-          {todo.title}
-        </li>
-      ))}
-    </ul>
-  </div>
+    <div>
+        <ul>
+            {props.visibleTodos.map((todo) => (
+                <li
+                    key={todo.id}
+                    style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
+                    onClick={() => props.toggleTodo(todo.id)}
+                >
+                    {todo.title}
+                </li>
+            ))}
+        </ul>
+    </div>
 );
 
 const filterTodos = (todos: Todo[], filter: Filter): Todo[] => {
-  switch (filter) {
-  case Filter.ALL:
-    return todos;
-  case Filter.COMPLETED:
-    return todos.filter((todo) => todo.completed);
-  case Filter.UNCOMPLETED:
-    return todos.filter((todo) => !todo.completed);
-  }
+    switch (filter) {
+        case Filter.ALL:
+            return todos;
+        case Filter.COMPLETED:
+            return todos.filter((todo) => todo.completed);
+        case Filter.UNCOMPLETED:
+            return todos.filter((todo) => !todo.completed);
+    }
 };
 
 const mapStateToProps = (state: AppState): StateProps => {
-  const { todos, filter } = state.todos;
+    const { todos, filter } = state.todos;
 
-  return {
-    visibleTodos: filterTodos(todos, filter),
-  };
+    return {
+        visibleTodos: filterTodos(todos, filter),
+    };
 };
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
-  return {
-    ...bindActionCreators(actions, dispatch),
-  };
+    return {
+        ...bindActionCreators(actions, dispatch),
+    };
 };
 
 export const TodoList = connect(mapStateToProps, mapDispatchToProps)(TodoListPresentation);

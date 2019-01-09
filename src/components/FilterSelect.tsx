@@ -6,37 +6,39 @@ import { changeFilter } from '../redux/modules/todos';
 import { AppState } from '../redux/types';
 
 const actions = { changeFilter };
+
 interface StateProps {
-  currentFilter: Filter;
+    currentFilter: Filter;
 }
+
 type DispatchProps = typeof actions;
 
 const FilterSelectPresentation = (props: StateProps & DispatchProps) => (
-  <div>
-    {Object.keys(Filter).map((key) => Filter[key]).map((filter) => (
-      <span key={filter}>
+    <div>
+        {Object.keys(Filter).map((key) => Filter[key]).map((filter) => (
+            <span key={filter}>
         <a
-          href='#'
-          style={{ color: filter === props.currentFilter ? 'red' : 'blue' }}
-          onClick={() => props.changeFilter(filter)}
+            href='#'
+            style={{ color: filter === props.currentFilter ? 'red' : 'blue' }}
+            onClick={() => props.changeFilter(filter)}
         >
           {filter}
         </a>
-        {' '}
+                {' '}
       </span>
-    ))}
-  </div>
+        ))}
+    </div>
 );
 
 const mapStateToProps = (state: AppState): StateProps => {
-  return {
-    currentFilter: state.todos.filter,
-  };
+    return {
+        currentFilter: state.todos.filter,
+    };
 };
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
-  return {
-    ...bindActionCreators(actions, dispatch),
-  };
+    return {
+        ...bindActionCreators(actions, dispatch),
+    };
 };
 
 export const FilterSelect = connect(mapStateToProps, mapDispatchToProps)(FilterSelectPresentation);
