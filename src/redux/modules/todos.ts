@@ -1,6 +1,6 @@
 import { Reducer } from 'redux';
 import * as uuid from 'uuid/v4';
-import { PayloadedAction } from '../types';
+import { PayloadAction } from '../types';
 
 export interface Todo {
     id: string;
@@ -25,9 +25,9 @@ export const todosInitialState: TodosState = {
 };
 
 export type TodosAction =
-    | PayloadedAction<'ADD_TODO', { title: string }>
-    | PayloadedAction<'TOGGLE_TODO', { id: string }>
-    | PayloadedAction<'CHANGE_FILTER', { filter: Filter }>;
+    | PayloadAction<'ADD_TODO', { title: string }>
+    | PayloadAction<'TOGGLE_TODO', { id: string }>
+    | PayloadAction<'CHANGE_FILTER', { filter: Filter }>;
 
 export const addTodo = (title: string): TodosAction => ({
     type: 'ADD_TODO',

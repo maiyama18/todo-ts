@@ -4,7 +4,7 @@ export interface Action<T> {
     type: T;
 }
 
-export interface PayloadedAction<T, P> {
+export interface PayloadAction<T, P> {
     type: T;
     payload: P;
 }
